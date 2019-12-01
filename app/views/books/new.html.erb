@@ -15,7 +15,8 @@
     <table>
       <thead>
       	<tr>
-      	  <th><P>title</P></th>
+      	  <th><P>Title</P></th>
+      	  <th><p>Body</p></th>
         </tr>
       </thead>
       <tbody>
@@ -24,8 +25,8 @@
       	  <td><span><%= book.title %></span></td>
       	  <td><span><%= book.body %></span></td>
       	  <td><span><%= link_to "show", "/books/#{book.id}" %></span></td>
-      	  <td><span><%= link_to "edit", edit_post_path(book) %></span></td>
-      	  <td><span><%= link_to "destroy", destroy_ost_path(book), method: :delete, "data-confirm" =>"Are you sure？" %></span></td>
+      	  <td><span><%= link_to "edit", edit_book_path(book) %></span></td>
+      	  <td><span><%= link_to "destroy", destroy_book_path(book), method: :delete, "data-confirm" =>"Are you sure？" %></span></td>
         </tr>
         <% end %>
       </tbody>
