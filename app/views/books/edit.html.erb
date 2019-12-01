@@ -11,7 +11,7 @@
 <% end %>
 
 <p>
-	<%= link_to "show", book_path %>
+	<%= link_to "show", book_path(@book) %>
 	
-    <a href="/books/new">Back</a>
+  <%= link_to "back", books_path %>
 </p>
