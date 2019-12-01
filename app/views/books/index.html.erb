@@ -1,9 +1,50 @@
-<h1>Books</h1>
-<% @books.each do |books| %>
-	<P>Title</P>
-	<span><%= books.title %></span>
+  <div class="comment">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+  </div>
 
-　　<P>body</P>
-	<span><%= books.body %></span>
+  <h1>Books</h1>
+    <table>
+      <thead>
+      	<tr>
+      	  <th><P>Title</P></th>
+      	  <th><p>Body</p></th>
+        </tr>
+      </thead>
+      <tbody>
+      	<% @books.each do |book| %>
+      	<tr>
+      	  <td><span><%= book.title %></span></td>
+      	  <td><span><%= book.body %></span></td>
+      	  <td><span><%= link_to "show", "/books/#{book.id}" %></span></td>
+      	  <td><span><%= link_to "edit", edit_book_path(book) %></span></td>
+      	  <td><span><%= link_to "destroy", destroy_book_path(book), method: :delete, "data-confirm" =>"Are you sure？" %></span></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<% end %>
+
+  <h1>New book</h1>
+  <%= form_for(@book) do |f| %>
+
+  <% if @book.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+    <% end %>
+
+    <h4>Title</h4>
+    <%= f.text_field :title %>
+
+    <h4>Body</h4>
+    <%= f.text_area :body %>
+    <br>
+    <%= f.submit 'Create Book' %>
+
+  <% end %>
