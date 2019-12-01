@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+.comment{
+	color: #00ff00;
+}
+.notice{
+	margin: 20px;
+}
+
+body{
+	margin: 20px;
+}
+
+.show-title{
+	margin-left: 50px;
+}
+
+.show-body{
+	margin-left: 50px;
+}
+
+td{
+	max-width: 400px;
+	padding-left: 50px;
+}
+
+.new-table{
+	margin-left: 10px;
+}
